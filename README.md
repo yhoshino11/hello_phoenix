@@ -1,3 +1,6 @@
+# Doing
+- [Phoenix - Official Document](http://www.phoenixframework.org/docs/)
+
 # HelloPhoenix
 
 To start your Phoenix app:
