@@ -2,7 +2,7 @@ defmodule HelloPhoenix.Router do
   use HelloPhoenix.Web, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "json", "text"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
@@ -14,13 +14,22 @@ defmodule HelloPhoenix.Router do
   end
 
   scope "/", HelloPhoenix do
-    pipe_through :browser # Use the default browser stack
+    pipe_through :browser
 
-    get "/", PageController, :index
+    get "/",          PageController, :index, as: :root
+    get "/msg",       PageController, :msg
+    get "/show/:msg", PageController, :show
+    get "/plain",     PageController, :plain
+    get "/params",    PageController, :params
+    get "/error",     PageController, :error
+    get "/redirect",  PageController, :to_root, as: :redirect_test
+    get "/external",  PageController, :external
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", HelloPhoenix do
-  #   pipe_through :api
-  # end
+  scope "/api", HelloPhoenix do
+    pipe_through :api
+
+    get "/show/:id", PageController, :api
+    get "/success",  PageController, :success
+  end
 end
