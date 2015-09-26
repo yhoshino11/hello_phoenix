@@ -1,4 +1,7 @@
 # Important!
+## Don't use :async for model tests
+###### It causes erratic test results and possibly even deadlocks.
+
 ## List of Phoenix Tasks
 ```sh
 $ mix help | grep -i phoenix
