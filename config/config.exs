@@ -5,6 +5,14 @@
 # is restricted to this project.
 use Mix.Config
 
+config :hello_phoenix, HelloPhoenix.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "hello_phoenix_repo",
+  username: "user",
+  password: "pass",
+  hostname: "localhost"
+
+
 # Configures the endpoint
 config :hello_phoenix, HelloPhoenix.Endpoint,
   url: [host: "localhost"],

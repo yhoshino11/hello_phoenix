@@ -1,3 +1,15 @@
+# Executed Generator
+```sh
+# Scaffold User
+$ mix phoenix.gen.html User users name:string email:string bio:string number_of_pets:integer
+
+# Generate Video Model
+$ mix phoenix.gen.model Video videos name:string approved_at:datetime description:text likes:integer views:integer user_id:references:users
+
+# Migration
+$ mix ecto.migrate
+```
+
 # Doing
 - [Phoenix - Official Document](http://www.phoenixframework.org/docs/)
 
